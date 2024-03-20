@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Edit Application Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="./scripts/checkForDarkMode.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="./styles/nav-styles.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvI7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="navbarPlaceholder"></div>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form method="post" action="php/receiptPages/receiptEditApplicationForm.php" class="custom-form">
+                    <input type="hidden" id="applicationId" name="applicationId" value="">
+                    <div class="form-group mt-3 custom-dark-mode">
+                        <h2 class="contact-header">Edit Application Form</h2>
+                        <hr>
+                        <label for="jobPosition">Job Position*</label> <input type="text" class="form-control"
+                            id="jobPosition" name="jobPosition" value="" required="">
+                    </div>
+                    <div class="form-group mt-3 custom-dark-mode">
+                        <label for="organization">Organization*</label> <input type="text"
+                            class="form-control" id="organization" name="organization" required="">
+                    </div>
+                    <!-- date -->
+                    <div class="form-group mt-3 custom-dark-mode">
+                        <label for="dateApplied">Date of Application*</label> <input type="date"
+                            class="form-control" id="dateApplied" name="dateApplied" required="">
+                    </div>
+                    <!-- Job Description URL*  -->
+                    <div class="form-group mt-3 custom-dark-mode">
+                        <label for="descriptionURL">Description Url*</label> <input type="text" class="form-control"
+                            id="descriptionURL" name="descriptionURL" required="">
+                    </div>
+                    <!--Status dropdown menu-->
+                    <div class="form-group mt-3 custom-dark-mode">
+                        <label for="applicationStatus">Status*</label>
+                        <select class="form-control custom-select" id="status" name="status"
+                            required>
+                            <option value="">-Select Status-</option>
+                            <option value="Need to Apply">Need to Apply</option>
+                            <option value="Applied">Applied</option>
+                            <option value="Interviewing">Interviewing</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Accepted">Accepted</option>
+                            <option value="Inactive/Expired">Inactive/Expired</option>
+                        </select>
+                    </div>
+                    <!-- Updates text area-->
+                    <div class="form-group mt-3 custom-dark-mode">
+                        <label for="notes" class="form-label">Notes</label>
+                        <textarea class="form-control" placeholder="Who have you spoken with interviewed? Contact Info?"
+                            id="notes" style="height: 100px" name="notes"></textarea>
+                    </div>
+                    <!--Follow up date*: (use JS to default to 2 weeks from today) -->
+                    <div class="form-group mt-3 custom-dark-mode">
+                        <label for="followUpDate" class="form-label">Follow-up date*</label> <input type="date"
+                            class="form-control" id="followUpDate" name="followUpDate" required>
+                    </div><button type="submit" class="btn custom-btn btn-primary my-3">Update</button>
+                    <input type="hidden" id="userId" name="postId" value="34657" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="footerPlaceholder"></div>
+    <script src="./scripts/navBar.js"></script>
+    <script src="./scripts/formMisc.js"></script>
+    <script>
+        // retreiving values from url
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        //removing uneeded params
+        urlParams.delete("userId")
+
+        //pre-filling inputs
+        urlParams.forEach((val, key) => {
+            const keyElement = document.getElementById(key);
+            console.log(key + " is: " + document.getElementById(key))
+            if (key == "dateApplied" || key == "followUpDate") {
+                keyElement.value = new Date(val).toISOString().substring(0,10);
+            } else {
+                keyElement.value = val
+            }
+        })
+        const appId = urlParams.get("applicationId")
+
+        document.getElementById('applicationId').value = appId;
+    </script>
+</body>
+
+</html>

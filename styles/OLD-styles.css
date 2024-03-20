@@ -1,0 +1,532 @@
+@font-face {
+	font-family: "BigNoodleTilting";
+	src: local("BigNoodleTilting"),
+		url("../fonts/big_noodle_titling.ttf") format("woff");
+}
+
+@font-face {
+	font-family: "AvenirNextLTPro";
+	src: local("AvenirNextLTPro"),
+		url("../fonts/AvenirNextLTPro-Regular.ttf") format("woff");
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "AvenirNextLTPro";
+	src: local("../fonts/AvenirNextLTPro-Medium.ttf") format("woff");
+	font-weight: bold;
+}
+
+:root {
+	--section-gray: #525252;
+	--white: #ffff;
+	/* primary Colors */
+	--gator-green: #6cb443;
+	--grc-green: #2c882b;
+	/* accent colors */
+	--ever-green: #006225;
+	--leaf-green: #bbd416;
+	--sunrise-orange: #d14900;
+	--sky-blue: #418fde;
+	--pine-cone: #333333;
+	--primary-inactive-gray: #b6b6b6;
+}
+
+* {
+	transition: color 0.3s ease, background-color 0.3s ease,
+		border-color 0.3s ease, transform 0.3s ease, height 0.3s ease-in-out,
+		opacity 0.3s ease !important;
+}
+
+body {
+	background-color: white;
+}
+
+#navbarPlaceholder {
+	/*this is the height of the nav bar once it loads in*/
+	margin-bottom: 141.89px;
+}
+
+.darkMode body {
+	background-color: #333333;
+}
+
+.contact-header {
+	font-family: "BigNoodleTilting";
+	color: var(--grc-green);
+}
+.form-group label {
+	color: black;
+	display: inline-block;
+	padding-bottom: 10px;
+	margin-bottom: 0px;
+}
+.custom-btn {
+	background-color: var(--grc-green);
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.custom-btn:hover {
+	background-color: var(--ever-green);
+	color: #fff;
+}
+
+/* Styles for dark mode */
+
+/* Background */
+.darkMode {
+	background-color: var(--pine-cone);
+}
+
+/* Form title font color */
+.darkMode .contact-header {
+	color: var(--gator-green);
+}
+/* HR line that is under the form title */
+.darkMode hr {
+	border-color: var(--gator-green);
+	opacity: 1;
+}
+
+/*Form label font colors*/
+.darkMode .form-group label {
+	color: var(--white);
+}
+/* Form input colors */
+.darkMode .form-group textarea,
+.darkMode .form-group input {
+	background-color: var(--section-gray); /* Background of field input */
+	color: var(--white); /* Typing text font color*/
+	border: 1px solid var(--gator-green); /* Input border color */
+}
+/* Dark mode styles for placeholder text */
+.darkMode .form-group textarea::placeholder,
+.darkMode .form-group input::placeholder {
+	color: #a2a2a2; /* Color text for placeholder */
+}
+/* Button colors */
+.darkMode .custom-btn:hover {
+	background-color: var(--gator-green); /* Button background color */
+	color: var(--white); /* Text inside button color */
+}
+
+.icon-link {
+	text-decoration-color: initial;
+}
+
+.add-btn {
+	background-color: var(--gator-green);
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.add-btn:hover {
+	background-color: var(--grc-green);
+	color: white;
+}
+
+/* Styles for dark mode */
+.darkMode h2,
+.darkMode p {
+	color: white;
+}
+
+.darkMode span {
+	color: white;
+}
+.darkMode h1 {
+	color: white;
+}
+
+.darkMode .reminders {
+	color: var(--small-text-primary);
+}
+
+.darkMode .reminders {
+	color: white;
+}
+
+.darkMode .reminders li {
+	color: var(--gator-green);
+}
+
+/* Background */
+.darkMode {
+	background-color: var(--pine-cone);
+}
+/* Nav bar */
+
+.darkMode .settings a {
+	color: white;
+}
+
+.darkMode .settings img {
+	filter: brightness(100);
+}
+
+/* Button colors */
+.darkMode .custom-btn:hover {
+	background-color: var(--gator-green); /* Button background color */
+	color: white; /* Text inside button color */
+}
+
+.darkMode .add-btn {
+	color: white;
+	background-color: var(--grc-green);
+}
+
+.darkMode .add-btn:hover {
+	background-color: var(--gator-green);
+	color: white;
+}
+
+.darkMode .reminders h3 a {
+	color: var(--grc-green);
+}
+
+.darkMode .apps .labels span {
+	color: var(--grc-green);
+}
+
+.darkMode .bi-pencil,
+.darkMode .bi-trash3,
+.darkMode .bi-eye {
+	fill: white;
+}
+
+.darkMode .apps .trash {
+	content: url("../images/dark-trash.svg");
+}
+
+.darkMode #applicationsList li:hover,
+.darkMode #usersList li:hover {
+	background-color: rgba(128, 128, 128, 0.219);
+}
+
+.darkMode #applicationsList li:hover span,
+.darkMode #applicationsList li:hover svg,
+.darkMode #usersList li:hover span,
+.darkMode #usersList li:hover svg {
+	opacity: 1;
+}
+
+.darkMode #applicationsList span,
+.darkMode #applicationsList svg,
+.darkMode #usersList span,
+.darkMode #usersList svg {
+	color: white;
+	opacity: 0.6;
+	fill: white;
+}
+
+.darkMode .apps .add img {
+	content: url("../images/dark-plus.svg");
+}
+
+.darkMode .summary {
+	background: rgb(82, 82, 82);
+	background: linear-gradient(180deg, #333333 0%, rgba(0, 98, 37, 1) 36%);
+}
+
+.darkMode .summary h2 {
+	color: var(--gator-green);
+}
+
+.darkMode .summary h5,
+.darkMode .summary p,
+.darkMode .summary span,
+.darkMode .summary a {
+	color: white;
+}
+
+.settings a {
+	color: var(--section-gray);
+}
+
+html,
+body {
+	overflow-x: hidden;
+	height: 100%;
+}
+/* border-bottom border-dark */
+
+h1 {
+	color: var(--section-gray);
+}
+
+* {
+	font-family: "AvenirNextLTPro";
+}
+
+h1,
+h2,
+h3,
+.reminders a {
+	font-family: "BigNoodleTilting";
+}
+
+p {
+	font-weight: normal;
+}
+
+.darkMode .form-control {
+	background-color: inherit;
+	color: white;
+	border-color: rgb(154, 154, 154);
+}
+
+.input-group button {
+	border-color: #dee2e6;
+}
+
+.darkMode #search {
+	border-color: rgb(154, 154, 154) !important;
+}
+
+.darkMode .form-control::placeholder {
+	color: rgb(190, 190, 190);
+}
+
+.reminders p,
+.reminders li,
+.reminders span {
+	font-weight: bold;
+}
+
+.reminders h3 a {
+	color: var(--ever-green);
+}
+
+.reminders li {
+	color: var(--grc-green);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	list-style-position: inside;
+}
+
+.reminders ul, #admin-container ul {
+	margin: 0;
+	padding: 0;
+}
+
+.reminders .list-item {
+	margin-bottom: 15px;
+	list-style-image: url("../images/BulletPoint.svg");
+}
+
+.apps .labels span {
+	font-weight: normal;
+	color: var(--ever-green);
+}
+
+.apps ul {
+	padding-left: 0;
+}
+
+.apps span {
+	color: var(--section-gray);
+}
+
+.apps .labels {
+	border-color: var(--bs-dark-border-subtle);
+}
+
+.icons a svg {
+	width: 20px;
+}
+
+.icons a:hover {
+	transform: scale(1.1);
+}
+
+.apps .edit {
+	content: url("../images/edit.svg");
+}
+
+.apps .trash {
+	content: url("../images/trash.svg");
+}
+
+.apps .add img {
+	content: url("../images/plus.svg");
+}
+
+.summary {
+	background-color: var(--gator-green);
+}
+
+.summary h2 {
+	color: var(--ever-green);
+}
+
+.summary h4 {
+	font-weight: bold;
+}
+
+.summary p,
+.summary span,
+.summary a {
+	color: var(--bs-body-color);
+}
+
+#admin {
+	border-color: var(--gator-green) !important;
+}
+
+#admin h1 {
+	color: var(--grc-green);
+}
+
+#admin .labels span {
+	color: var(--grc-green);
+}
+
+.darkMode #admin h1 {
+	color: var(--gator-green);
+}
+
+.result {
+	color: var(--gator-green) !important;
+}
+
+.multi-line-input {
+    border-left: 1px solid var(--gator-green);
+}
+
+.receipt h3 {
+	font-size: 1.6rem !important;
+}
+
+.receipt h2 {
+    font-size: 2.2rem;
+}
+
+.receipt-header {
+    font-size: 3rem !important;
+}
+
+.key {
+	margin-right: 30px;
+}
+
+.receipt-header {
+	color: var(--gator-green) !important;
+}
+
+footer {
+	flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+	h1 {
+		font-size: 3.5rem;
+	}
+
+	h2 {
+		font-size: 2.6rem;
+	}
+
+	h4 {
+		font-size: 1.2rem;
+	}
+
+	.btn {
+		padding: 6px 10px;
+		font-size: 0.875rem !important;
+	}
+
+	.settings a {
+		font-size: 0.8rem;
+	}
+
+	.reminders li {
+		font-size: 1rem;
+	}
+
+	.reminders span {
+		font-size: 0.8rem;
+	}
+
+	.apps span,
+	#admin-container span {
+		font-size: 0.8rem;
+	}
+	
+	.receipt h3 {
+    	font-size: 1rem !important;
+    }
+    
+    .reciept h2 {
+        font-size: 1.6rem !important;
+    }
+    
+    .receipt-header {
+    font-size: 2rem !important;
+}
+}
+
+@media (min-width: 701px) {
+	h1 {
+		font-size: 5rem;
+	}
+
+	h2 {
+		font-size: 3.4rem;
+	}
+
+	.reminders li {
+		font-size: 1.1rem;
+		font-weight: bold;
+	}
+
+	.reminders span {
+		font-size: 1rem;
+	}
+}
+
+@media (max-width: 991px) {
+	.reminders h3 a {
+		font-size: 1.8rem;
+	}
+	
+	.reciept h3 {
+        font-size: 1.6rem !important;
+    }
+
+	.receipt h2 {
+		font-size: 1.8rem;
+	}
+	.receipt-header {
+    font-size: 2.4rem !important;
+}
+
+	#find-more-icon {
+		display: none !important;
+	}
+
+	.icons a svg {
+		width: 18px;
+	}
+
+	.admin-button {
+		font-size: 0.8rem;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1250px) {
+	.reminders h3 a {
+		font-size: 1.5rem;
+	}
+}
+
+@media (min-width: 1251px) {
+	.reminders h3 a {
+		font-size: 2rem;
+	}
+}

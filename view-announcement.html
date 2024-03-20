@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>New Application Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="./scripts/checkForDarkMode.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="./styles/nav-styles.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="navbarPlaceholder"></div>
+    <div id="announcementContainer"></div>
+    <div id="footerPlaceholder"></div>
+
+<script src="./scripts/navBar.js"></script>
+
+<script>
+    // Function to parse URL parameters
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+    
+    function formatDate(dateString) {
+    const date = new Date(dateString);
+    const year = String(date.getFullYear()).slice(-2);
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+    // Execute when the page is fully loaded
+// Execute when the page is fully loaded
+window.onload = async function() {
+    const announcementId = getQueryParam('announcementId');
+
+    try {
+        const response = await fetch(`/pages/Sprint_5/php/dbAccess/announcementId.php?announcementId=${announcementId}`);
+
+       
+
+        const data = await response.json();
+
+        const container = document.getElementById('announcementContainer');
+        const div = document.createElement('div');
+        div.className = 'announcement';
+        div.innerHTML = `
+  <div class="container mt-4">
+   <div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="custom-form custom-dark-mode">
+            <div class="card-body">
+                <!-- Title and Date in the same row using flexbox -->
+                    <h2 class="contact-header">${data.title}</h2>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <p class="form-group"><strong>Job Type:</strong> ${data.jobType}</p>
+                    <p class="form-group" style="color: gray; font-size: smaller;">${formatDate(data.createdDate)}</p>
+                </div>
+                <!-- Employer and Location with smaller and gray text for Employer -->
+                <p class="form-group" style="color: gray; font-size: smaller;">${data.employer} - ${data.location}</p>
+                <br>
+                <!-- More Info made strong -->
+                <p class="form-group"><strong>${data.moreInfo}</strong></p>
+                <!-- URL on its own line, aligned to the right, and in green color -->
+                <div class="d-flex justify-content-end">
+                    <p class="form-group">
+                        <a href="${data.url}" style="color: green;  font-weight: bold;">Job Description</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</div>
+
+
+        `;
+        container.appendChild(div);
+    } catch (error) {
+            const container = document.getElementById('announcementContainer');
+            container.innerHTML = 'No announcement found with that ID';        // document.getElementById('announcementContainer').innerHTML = 'Error: Failed to fetch announcement';
+    }
+};
+</script>
+</body>
+</html>

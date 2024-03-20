@@ -1,0 +1,216 @@
+@font-face {
+	font-family: "BigNoodleTilting";
+	src: url("../fonts/big_noodle_titling.ttf");
+}
+
+@font-face {
+	font-family: "AvenirNextLTPro";
+	src: url("../fonts/AvenirNextLTPro-Regular.ttf");
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "AvenirNextLTPro";
+	src: url("../fonts/AvenirNextLTPro-Medium.ttf");
+	font-weight: bold;
+}
+
+.navbar-collapse {
+	display: flex;
+}
+
+.navbar {
+	padding: 0px;
+	background-color: white;
+
+	justify-content: flex-start;
+	align-items: stretch;
+	box-shadow: 0px 0px 10px 2px rgba(105, 105, 105, 0.342);
+}
+
+.navbar-collapse {
+	align-items: stretch;
+}
+
+.navbar-brand {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 0px;
+}
+
+.logo {
+	width: 120px;
+	content: url("/pages/Sprint_5/images/GRC_Logo_Green.png");
+	padding: 0.4rem 0px;
+}
+
+.navbar-nav {
+	align-items: stretch;
+}
+
+.nav-link {
+	color: var(--ever-green) !important;
+	font-family: "BigNoodleTilting", Impact;
+	font-size: 1.7rem !important;
+	padding: 0.5rem 1rem !important;
+	line-height: 1.8rem;
+	letter-spacing: 1px;
+}
+
+.nav-link:hover {
+	color: var(--ever-green);
+}
+
+.nav-item {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-self: flex-end;
+	text-align: center;
+}
+
+.darkModeToggle {
+	background-color: transparent;
+	padding: 4px 0px 0px 0px;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-left: auto;
+}
+
+.darkModeToggle span {
+	font-family: "BigNoodleTilting";
+	color: var(--grc-green);
+	font-size: 1.3rem;
+	padding: 4px 10px 0px 10px;
+}
+
+.darkModeToggle img {
+	content: url("/pages/Sprint_5/images/dark-mode.svg");
+	height: 45px;
+	border-color: var(--grc-green) !important;
+}
+
+.darkModeToggle:hover {
+	background-color: var(--grc-green);
+	border-color: transparent !important;
+}
+
+.darkModeToggle:hover span,
+.darkModeToggle:hover img {
+	color: white;
+}
+
+.darkModeToggle:hover img {
+	content: url("/pages/Sprint_5/images/hover-moon.svg");
+	border-color: white !important;
+}
+
+@media (max-width: 767px) {
+	.navbar li {
+		background-color: var(--gator-green);
+		width: 100%;
+		border-top: 2px solid rgb(0, 98, 37, 0.5);
+	}
+
+	.darkMode .navbar li {
+		background-color: #2b2b2b;
+		border-color: #2c882b73;
+	}
+
+	.navbar li a {
+		text-align: start;
+	}
+
+	.navbar ul {
+		width: 100%;
+	}
+}
+
+@media (min-width: 767px) {
+	.nav-item::after {
+		display: block;
+		transition: all 0.3s ease;
+		margin-right: 1.9px;
+		content: "";
+		border-bottom: 0.3rem solid var(--ever-green);
+		transform: scaleX(0);
+	}
+
+	.darkMode .nav-item::after {
+		border-bottom: 0.3rem solid var(--gator-green);
+	}
+
+	.nav-item:hover::after {
+		transform: scaleX(1);
+	}
+}
+
+@media (min-width: 767px) and (max-width: 907px) {
+	.nav-link {
+		font-size: 1.34rem !important;
+	}
+}
+
+@media (min-width: 992px) {
+	.logo {
+		width: 160px;
+	}
+
+	.darkModeToggle img {
+		height: 50px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.nav-item {
+		padding: 0rem 1rem;
+	}
+
+	.nav-item a {
+		font-size: 2rem;
+	}
+}
+
+.darkMode .navbar {
+	background-color: #222222;
+	color: var(--gator-green) !important;
+	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.15);
+}
+
+.darkMode .logo {
+	content: url("/pages/Sprint_5/images/GRC_Logo_White.png");
+}
+
+.darkMode .darkModeToggle:hover {
+	background-color: var(--gator-green);
+}
+
+.darkMode .darkModeToggle img {
+	content: url("/pages/Sprint_5/images/sun.svg");
+	border-color: white !important;
+}
+
+.darkMode .darkModeToggle span {
+	color: white;
+}
+
+.darkMode .darkModeToggle:hover img {
+	content: url("/pages/Sprint_5/images/hover-sun.svg");
+	border-color: var(--ever-green) !important;
+}
+
+.darkMode .darkModeToggle:hover span {
+	color: var(--ever-green);
+}
+
+.darkMode .navbar-nav .nav-link {
+	color: var(--gator-green) !important; /* Nav font color */
+}
+
+.darkMode .custom-btn:hover {
+	background-color: var(--gator-green); /* Button background color */
+	color: white; /* Text inside button color */
+}
